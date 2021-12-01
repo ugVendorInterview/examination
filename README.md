@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+## 第一步：获取项目并启动项目
+1. 进入 https://github.com/ugVendorInterview/examination， 通过fork到自己的账户下的一个新仓库中
+2. 将代码clone到本地，安装依赖并运行成功代码（请在package.json中查看dev环境运行的命令）
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 第二步：完成表单数据功能补全
+后台开发基础组件库采用： https://arco.design/
+雇员信息获取接口： https://dummy.restapiexample.com/api/v1/employees
+### 任务一：补全获取列表方法()
+  接口地址：https://dummy.restapiexample.com/api/v1/employees
+  要求：
+1.  数据请求成功后，将数据中列表的部分通过setTableData进行数据更新，并通过全局提示Message组件弹出成功提示"列表拉取成功！"
+2. 如果数据请求失败，则通过全局提示Message组件弹出失败提示"雇员列表获取失败，请重试"
 
-## Available Scripts
+### 任务二：开发弹窗中表单内容
+要求：
+1. 编辑和新建共用同一个弹窗表单，新建时要求表单无初始值，编辑要求使用表格中所在行的数据作为初始值
+2. 要求编辑的字段有
+  1. 姓名，对应字段employee_name，必填，placeholder内容为“请填写雇员姓名”
+  2. 年龄，对应字段employee_age，非必填， placeholder内容为“请输入雇员年龄”，要求年龄最小值为18，最大值为100， 只能填写数字
+  3. 工资，对应字段employee_salary，必填，placeholder内容为“请录入雇员工资”，要求工资最小值为0， 只能填写数字（加分项，进行千分位处理，并增加¥前缀）
 
-In the project directory, you can run:
+### 任务三：完成弹窗点击确认之后的回调
+要求：进行表单校验，在校验成功后，根据当前所处的状态（根据isCreating这个变量判断）进行数据展示
+1. 当isCreating=== true（表示新建状态），则通过全局提示Message组件弹出成功提示，提示内容为 "雇员信息录入成功" + 当前表单填写的信息
+2. 当isCreating=== true（表示编辑状态），则通过全局提示Message组件弹出成功提示，提示内容为 "雇员信息更新成功" + 更新雇员的id +当前表单填写的信息
+3. 在数据展示结束之后，重置表单内容并重新拉取表格数据
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 第三步： 将完成的代码提交到仓库中
+要求：完成后通过git操作将修改的代码提到远端，commit记录要求commit message清晰简明地写出本次代码修改的信息
+加分项：可以将这次的修改，发起PR，提交到 https://github.com/ugVendorInterview/examination
